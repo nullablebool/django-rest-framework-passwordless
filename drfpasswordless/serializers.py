@@ -62,7 +62,7 @@ class AbstractBaseAliasAuthenticationSerializer(serializers.Serializer):
                     msg = _('User account is disabled.')
                     raise serializers.ValidationError(msg)
             else:
-                msg = _('No account is associated with this alias.')
+                msg = _('No account is associated with this %s.' % self.alias_type)
                 raise serializers.ValidationError(msg)
         else:
             msg = _('Missing %s.') % self.alias_type
